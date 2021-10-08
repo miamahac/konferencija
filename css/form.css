@@ -1,0 +1,82 @@
+.info h2 {
+    display: none;
+}
+
+.wufoo input.text,
+.wufoo textarea.textarea,
+.wufoo input.file,
+.wufoo select.select {
+    background-color: #0b3c49;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 0.75rem 0;
+}
+
+.wufoo legend.desc {
+    font-weight: 400;
+    color: #677377;
+}
+
+input.btTxt {
+    border-radius: 25px;
+    padding: 1.5rem 4rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: rogue-sans, sans-serif;
+    font-size: 1.25rem;
+    -webkit-box-shadow: 0px 8px 0px 0px rgba(255,255,255,1);
+-moz-box-shadow: 0px 8px 0px 0px rgba(255,255,255,1);
+box-shadow: 0px 8px 0px 0px rgba(255,255,255,1);
+background-color: #3dcee4;
+outline: none;
+border: none;
+cursor: pointer;
+margin: 2rem 0;
+}
+
+a {
+    color: #fff;
+}
+
+.wufoo li div,
+.wufoo li span,
+.wufoo li div label,
+.wufoo li span label {
+    font-weight: 400;
+    color: #677377;
+    text-align: center;
+}
+
+.wufoo input.text,
+.wufoo textarea.textarea,
+.wufoo input.file,
+.wufoo select.select {
+    color: #fff !important;
+    background: transparent!important;
+    border: 3px solid #fff !important;
+    border-radius: 1rem;
+    outline: none;
+    padding-left: 1rem;
+    font-size: 1.2rem !important;
+}
+
+.wufoo li.focused {
+    background-color: #46b43d;
+}
+
+::placeholder{
+    color: #fff;
+}
+
+.wufoo li span{
+    display: none !important;
+}
+
+@media screen and (max-width: 421px){
+    .wufoo input.text,
+.wufoo textarea.textarea,
+.wufoo input.file,
+.wufoo select.select {
+    width: 80%;
+}
+}

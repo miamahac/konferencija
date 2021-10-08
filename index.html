@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    #didomi-host a,
+    #didomi-host button,
+    #didomi-host span,
+    #didomi-host div {
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    #didomi-host #didomi-consent-popup+#didomi-popup {
+      background-color: transparent !important;
+    }
+
+    #didomi-host .didomi {
+      color: #1e1e1e;
+    }
+
+    #didomi-host .didomi-consent-popup__backdrop {
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    #didomi-host .didomi-popup__backdrop {
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    #didomi-host .didomi-consent-popup__backdrop+#didomi-host .didomi-popup__backdrop {
+      background-color: transparent !important;
+    }
+
+    #didomi-host .didomi-popup__exterior-border,
+    #didomi-host .didomi-consent-popup__exterior-border,
+    #didomi-host .didomi-notice,
+    #didomi-host .didomi-popup-notice {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    #didomi-host .didomi-popup__exterior-border.bottom,
+    #didomi-host .didomi-consent-popup__exterior-border.bottom,
+    #didomi-host .didomi-notice.bottom,
+    #didomi-host .didomi-popup-notice.bottom {
+      -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+      box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    #didomi-host .didomi-consent-popup__dialog {
+      border: none !important;
+      border-radius: 0 !important;
+    }
+
+    #didomi-host .didomi-consent-popup__dialog {
+      border-radius: 0;
+      width: 100%;
+      max-width: 480px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup__dialog {
+        max-width: 650px !important;
+      }
+    }
+
+    #didomi-host .didomi-popup-container,
+    #didomi-host .didomi-notice-banner {
+      border-color: transparent;
+      border: none !important;
+      border-radius: 0 !important;
+    }
+
+    #didomi-host .didomi-popup-notice {
+      padding: 20px 20px 17px 20px !important;
+      border-radius: 0;
+      width: 100%;
+      max-width: 480px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-notice {
+        width: 650px;
+        max-width: 650px !important;
+      }
+    }
+
+    #didomi-host .didomi-popup-notice .didomi-popup-notice-buttons {
+      margin-top: 17px;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-body {
+      padding-top: 16px !important;
+      padding-bottom: 14px;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors {
+      border: 0;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-body_vendors-list {
+      border: 0 !important;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-body__section {
+      -webkit-box-shadow: inset 0 0 0 1px #e0e0e0;
+      box-shadow: inset 0 0 0 1px #e0e0e0;
+    }
+
+    #didomi-host .didomi-popup-notice-logo {
+      width: auto;
+      height: 68px;
+      margin-bottom: 22px !important;
+    }
+
+    #didomi-host .didomi-popup-notice-text {
+      width: 100%;
+      max-width: 480px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-notice-text {
+        max-width: 650px !important;
+      }
+    }
+
+    #didomi-host .didomi-popup-notice-text h1 {
+      font-size: 28px;
+      font-size: 2.8rem;
+      line-height: 34px;
+      line-height: 3.4rem;
+      letter-spacing: -0.025em;
+      color: #1e1e1e;
+      margin-bottom: 19px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-notice-text h1 {
+        font-size: 32px;
+        font-size: 3.2rem;
+        line-height: 38px;
+        line-height: 3.8rem;
+      }
+    }
+
+    #didomi-host .didomi-popup-notice-text p {
+      font-family: "Roboto";
+      font-size: 15px;
+      font-size: 1.5rem;
+      line-height: 24px;
+      line-height: 2.4rem;
+      text-align: center !important;
+      margin-bottom: 12px;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-notice-text p {
+        padding: 0 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    #didomi-host .didomi-popup-notice-text a {
+      font-family: "Roboto";
+      font-size: 15px;
+      font-size: 1.5rem;
+      line-height: 24px;
+      line-height: 2.4rem;
+      color: #1197dd;
+      text-decoration: none !important;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-popup-notice-text a:hover {
+      color: #0478b5;
+    }
+
+    #didomi-host .didomi-popup-notice .didomi-popup-notice-subtext {
+      margin-top: 0px !important;
+    }
+
+    #didomi-host .didomi-consent-popup-body__explanation {
+      padding-right: 20px;
+      font-family: "Roboto";
+      font-size: 14px;
+      font-size: 1rem;
+      line-height: 24px;
+      line-height: 1.2rem;
+      letter-spacing: 0em;
+      color: #1e1e1e;
+      margin-bottom: 18px;
+    }
+
+    #didomi-host .didomi-consent-popup-body__explanation a {
+      font-family: "Roboto";
+      font-size: 14px;
+      font-size: 1rem;
+      line-height: 24px;
+      line-height: 1.4rem;
+      letter-spacing: 0em;
+      font-weight: 400 !important;
+      color: #1197dd !important;
+      text-decoration: none !important;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-consent-popup-body__explanation a:hover {
+      color: #0478b5;
+    }
+
+    #didomi-host .didomi-consent-popup-title {
+      position: relative;
+      display: block;
+      font-family: "Roboto";
+      font-size: 20px;
+      font-size: 2rem;
+      line-height: 24px;
+      line-height: 2.4rem;
+      letter-spacing: -0.025em;
+      color: #1e1e1e;
+    }
+
+    #didomi-host .didomi-consent-popup-title a {
+      font-size: 0;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-consent-popup-title a span {
+      position: relative;
+      display: inline-block;
+      padding-left: 34px;
+      font-family: "Roboto";
+      font-size: 20px;
+      font-size: 2rem;
+      line-height: 24px;
+      line-height: 2.4rem;
+      letter-spacing: -0.025em;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+      color: #1e1e1e;
+    }
+
+    #didomi-host .didomi-consent-popup-title a span:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 0px;
+      left: 0px;
+      margin-right: 20px;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+      background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>');
+    }
+
+    #didomi-host .didomi-consent-popup-title a:hover span {
+      color: #666666;
+    }
+
+    #didomi-host .didomi-popup-header {
+      position: relative;
+      padding: 25px 77px 0 20px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-header {
+        padding: 25px 20px 0 !important;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-body {
+      padding-top: 23px !important;
+    }
+
+    #didomi-host .didomi-consent-popup-body__title {
+      font-family: "Roboto";
+      font-size: 13px;
+      font-size: 1.3rem;
+      line-height: 32px;
+      line-height: 3.2rem;
+      letter-spacing: 0.025em;
+      color: #8b8b8b !important;
+      margin-bottom: 2px !important;
+    }
+
+    #didomi-host .didomi-consent-popup-header-close {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: block;
+      width: 36px;
+      height: 36px;
+      opacity: 1 !important;
+      background-color: #f5f5f5;
+      -webkit-box-shadow: inset 0 0 0 1px #e0e0e0;
+      box-shadow: inset 0 0 0 1px #e0e0e0;
+      color: #1e1e1e;
+      -webkit-transition: 0.12s ease-in-out;
+      -o-transition: 0.12s ease-in-out;
+      transition: 0.12s ease-in-out;
+      cursor: pointer;
+      font-size: 0 !important;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-consent-popup-header-close:hover {
+      color: #666666;
+      background: #fafafa !important;
+      -webkit-box-shadow: inset 0 0 0 1px #ebebeb;
+      box-shadow: inset 0 0 0 1px #ebebeb;
+    }
+
+    #didomi-host .didomi-consent-popup-header-close:hover:before {
+      color: #666666;
+    }
+
+    #didomi-host .didomi-consent-popup-header-close:before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 6px;
+      right: 0;
+      bottom: 0;
+      left: 6px;
+      background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>');
+    }
+
+    #didomi-host .didomi-consent-popup-body__section {
+      margin-bottom: 15px;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences .didomi-consent-popup-vendor {
+      position: relative;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-user-information-trigger>.trigger-icon {
+      font-size: 15px !important;
+    }
+
+    #didomi-host .didomi-components-accordion {
+      position: relative;
+      padding: 7px 0 9px 0;
+    }
+
+    #didomi-host .didomi-consent-popup-body__section .didomi-components-accordion {
+      position: relative;
+      padding: 7px 0 41px 0;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-purposes .didomi-components-accordion {
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-components-accordion {
+        padding: 7px 0 9px 0;
+      }
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-body__section .didomi-components-accordion {
+        padding: 7px 0 9px 0;
+      }
+    }
+
+    #didomi-host .didomi-components-accordion .trigger-icon {
+      position: relative;
+      top: -1px;
+      font-family: "Roboto";
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 15px;
+      font-size: 1.5rem;
+      line-height: 32px;
+      line-height: 3.2rem;
+      letter-spacing: 0em;
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing {
+      position: relative;
+      margin-bottom: 0 !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-data-processing {
+        padding-bottom: 0;
+      }
+    }
+
+    #didomi-host .didomi-components-accordion .content.active {
+      padding: 4px 0 6px 0;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-components-accordion .content.active {
+        padding: 10px 0 6px 0;
+      }
+    }
+
+    #didomi-host .didomi-components-accordion .content.active ul {
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+
+    #didomi-host .didomi-components-accordion .content.active li {
+      padding-left: 20px;
+      margin-left: 0;
+      position: relative;
+    }
+
+    #didomi-host .didomi-components-accordion .content.active li:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #a3a3a3;
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__purpose {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      font-family: "Roboto";
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 15px;
+      font-size: 1.1rem;
+      line-height: 32px;
+      line-height: 1.4rem;
+      letter-spacing: 0em;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-data-processing__purpose {
+        padding-right: 250px;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__purpose:hover {
+      color: #666666;
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__description {
+      font-family: "Roboto";
+      font-weight: normal;
+      font-size: 14px !important;
+      line-height: 20px;
+      line-height: 1.4rem;
+      letter-spacing: 0em;
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__buttons {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-data-processing__buttons {
+        top: 9px;
+        bottom: auto;
+        right: 0;
+        left: auto;
+      }
+    }
+
+    #didomi-host .didomi-components-radio {
+      -ms-flex-line-pack: start !important;
+      align-content: flex-start !important;
+      -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+      justify-content: flex-start !important;
+    }
+
+    #didomi-host .didomi-components-radio__option {
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 108px;
+      font-family: "Roboto";
+      font-weight: normal;
+      font-size: 13px;
+      font-size: 1.3rem;
+      line-height: 28px;
+      line-height: 2.8rem;
+      letter-spacing: 0em;
+    }
+
+    #didomi-host .didomi-components-radio__option svg {
+      margin: -1px 11px 0 3px;
+    }
+
+    #didomi-host .didomi-components-radio__option:first-of-type {
+      width: 127px;
+      margin-right: 10px;
+    }
+
+    #didomi-host .didomi-consent-popup-body_vendors-list {
+      font-family: "Roboto";
+      font-weight: 700;
+      margin-bottom: 0 !important;
+    }
+
+    #didomi-host .didomi-consent-popup-body_vendors-list b {
+      display: block;
+      padding-top: 4px;
+      margin-bottom: -4px;
+      margin-top: -8px;
+      font-size: 13px;
+      font-size: 1.3rem;
+      line-height: 32px;
+      line-height: 3.2rem;
+      color: #8b8b8b;
+    }
+
+    #didomi-host .didomi-consent-popup-body_vendors-list .didomi-components-radio__option {
+      width: 88px;
+    }
+
+    #didomi-host .didomi-consent-popup-body_vendors-list .didomi-components-radio__option:first-of-type {
+      width: 92px;
+      margin-right: 10px;
+    }
+
+    #didomi-host .didomi-consent-popup-container-click-all .didomi-components-radio__option {
+      width: 88px;
+    }
+
+    #didomi-host .didomi-consent-popup-container-click-all .didomi-components-radio__option:first-of-type {
+      width: 92px;
+      margin-right: 10px;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--agree {
+      padding: 0 !important;
+      border: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      background-color: #5fc264;
+      height: 28px !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--agree:hover {
+      background-color: #44ad49;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--disagree {
+      padding: 0 !important;
+      border: none !important;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: #f0474c;
+      height: 28px !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--disagree:hover {
+      background-color: #e4373c;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--unselected {
+      border: none;
+      -webkit-box-shadow: inset 0 0 0 1px #e0e0e0;
+      box-shadow: inset 0 0 0 1px #e0e0e0;
+      background-color: white;
+      color: #cccccc;
+      border: none;
+      height: 28px;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-components-radio__option.didomi-components-radio__option--unselected:hover {
+      background-color: #f2f2f2;
+      color: #666666;
+    }
+
+    #didomi-host .didomi-consent-popup-view-vendors-list {
+      padding-top: 4px;
+    }
+
+    @media screen and (max-width: 979px) {
+      #didomi-host .didomi-consent-popup-view-vendors-list {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+        justify-content: flex-start !important;
+        -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+        align-items: flex-start !important;
+        margin-bottom: 23px !important;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-view-vendors-list-link,
+    #didomi-host .didomi-consent-popup-view-vendors-list-link span {
+      padding: 0 !important;
+      border: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      font-family: "Roboto";
+      font-size: 15px;
+      font-size: 1.2rem;
+      line-height: 20px;
+      line-height: 1.4rem;
+      letter-spacing: 0em;
+      font-weight: 400 !important;
+      color: #1197dd;
+      text-decoration: none !important;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-consent-popup-view-vendors-list-link:hover,
+    #didomi-host .didomi-consent-popup-view-vendors-list-link span:hover {
+      color: #0478b5;
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__vendor {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding-bottom: 6px;
+      color: #1e1e1e;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+      font-weight: 700;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-data-processing__vendor {
+        padding-bottom: 0;
+        padding-right: 200px;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-data-processing__vendor:hover {
+      color: #666666;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences .didomi-consent-popup-vendor .didomi-consent-popup-vendor__buttons {
+      position: absolute;
+      bottom: 9px;
+      left: 0px;
+      margin-left: 0px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-preferences .didomi-consent-popup-vendor .didomi-consent-popup-vendor__buttons {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        left: auto;
+        bottom: auto;
+      }
+    }
+
+    #didomi-host .didomi-privacy-policy-link {
+      padding: 0 !important;
+      border: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      margin-bottom: 10px;
+      font-family: "Roboto";
+      font-size: 14px;
+      font-size: 1.4rem;
+      line-height: 20px;
+      line-height: 2rem;
+      letter-spacing: 0em;
+      font-weight: 400 !important;
+      color: #1197dd !important;
+      text-decoration: none !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+    }
+
+    #didomi-host .didomi-privacy-policy-link:hover {
+      color: #0478b5 !important;
+    }
+
+    #didomi-host .didomi-vendors-details-title {
+      display: block;
+      padding-bottom: 10px;
+      font-family: "Roboto";
+      font-size: 14px;
+      font-size: 1.4rem;
+      line-height: 20px;
+      line-height: 2rem;
+      letter-spacing: 0em;
+      color: #1e1e1e;
+    }
+
+    @media screen and (max-width: 980px) {
+      #didomi-host .didomi-vendors-details-title {
+        margin-top: 10px;
+      }
+    }
+
+    #didomi-host .didomi-arrow-back-popup-preferences-vendors {
+      display: none !important;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all {
+      position: relative;
+      background: #f5f5f5;
+      padding: 12px 12px 13px 12px !important;
+      -webkit-box-shadow: inset 0 0 0 1px #e0e0e0;
+      box-shadow: inset 0 0 0 1px #e0e0e0;
+      border-bottom: none;
+    }
+
+    @media screen and (max-width: 980px) {
+      #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all {
+        padding-bottom: 50px !important;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all .didomi-consent-popup-data-processing__buttons {
+      position: relative;
+      top: 0;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all .didomi-consent-popup-data-processing__buttons {
+        top: 1px;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all .didomi-consent-popup-vendor__buttons {
+      right: 14px;
+    }
+
+    @media screen and (max-width: 980px) {
+      #didomi-host .didomi-consent-popup-preferences-vendors .didomi-consent-popup-container-click-all .didomi-consent-popup-vendor__buttons {
+        left: 12px;
+        right: auto;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-body {
+      padding-bottom: 10px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-body {
+        padding-bottom: 3px !important;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-user-information-container {
+      font-family: "Roboto";
+      border: 0;
+      padding: 0;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-user-information-trigger {
+      color: #1e1e1e !important;
+      font-size: 15px;
+      font-size: 1.5rem;
+      font-size: 15px !important;
+      line-height: 32px;
+      line-height: 3.2rem;
+      font-weight: 700 !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+    }
+
+    #didomi-host .didomi-consent-popup-preferences-vendors .didomi-user-information-trigger:hover {
+      color: #666666;
+    }
+
+    #didomi-host .didomi-consent-popup-footer {
+      position: relative;
+      padding: 12px 20px 10px 20px;
+      background-color: white !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-consent-popup-footer {
+        padding: 2px 20px 0 20px;
+      }
+    }
+
+    #didomi-host .didomi-consent-popup-footer::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      background-color: #e0e0e0;
+      width: auto;
+      height: 1px;
+    }
+
+    #didomi-host .didomi-popup-notice-buttons {
+      margin-top: 17px !important;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-popup-notice-buttons {
+        margin-top: 31px !important;
+      }
+    }
+
+    #didomi-host .didomi-buttons {
+      width: 100%;
+    }
+
+    #didomi-host .didomi-components-button {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 0 15px !important;
+      height: 40px !important;
+      border: none !important;
+      background-color: #1197dd !important;
+      color: white !important;
+      font-family: "Roboto";
+      font-size: 16px;
+      font-size: 1.6rem;
+      line-height: 40px;
+      line-height: 4rem;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #didomi-host .didomi-components-button:hover {
+      background-color: #0478b5 !important;
+    }
+
+    #didomi-host .didomi-consent-popup-footer .didomi-consent-popup-actions button {
+      margin-right: 0 !important;
+    }
+
+    #didomi-host .didomi-learn-more-button {
+      display: block;
+      position: relative;
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 16px;
+      font-family: "Roboto";
+      font-size: 15px;
+      font-size: 1.5rem;
+      line-height: 24px;
+      line-height: 2.4rem;
+      text-align: center;
+      color: #1197dd !important;
+      text-decoration: none !important;
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    @media screen and (min-width: 980px) {
+      #didomi-host .didomi-learn-more-button {
+        margin-top: 39px !important;
+      }
+    }
+
+    #didomi-host .didomi-learn-more-button:hover {
+      color: #0478b5 !important;
+    }
+
+    #didomi-host .didomi-learn-more-button::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #ebebeb;
+      width: auto;
+      height: 1px;
+    }
+
+    #didomi-host .didomi-notice-banner {
+      -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .didomi-notice-banner.bottom {
+      -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-notice__interior-border {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-notice-text {
+      font-family: "Roboto";
+      font-size: 14px;
+      font-size: 1rem;
+      line-height: 22px;
+      line-height: 1rem;
+      letter-spacing: 0em;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-button {
+      font-family: "Roboto";
+      font-size: 13px;
+      font-size: 1.3rem;
+      font-size: 13px !important;
+      line-height: 28px;
+      line-height: 2.8rem;
+      letter-spacing: 0em;
+      font-weight: 400 !important;
+      padding: 0 12px !important;
+      min-width: unset !important;
+    }
+
+
+    #didomi-host .didomi-notice-banner {
+      -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .didomi-notice-banner.bottom {
+      -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-notice__interior-border {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-notice-text {
+      font-size: 14px;
+      font-size: 1rem;
+      line-height: 22px;
+      line-height: 1.2rem;
+      letter-spacing: 0em;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-notice-text p {
+      font-family: "Roboto";
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-button {
+      font-family: "Roboto";
+      font-size: 13px;
+      font-size: 1.3rem;
+      font-size: 13px !important;
+      line-height: 28px;
+      line-height: 2.8rem;
+      letter-spacing: 0em;
+      font-weight: 400 !important;
+      padding: 0 12px !important;
+      min-width: unset !important;
+      margin-top: 0px !important;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons {
+      width: auto;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-learn-more-button {
+      margin-top: 0;
+      color: #1197dd !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+      min-width: unset;
+      border: 0 !important;
+      background-color: white !important;
+      -webkit-box-shadow: inset 0 0 0 1px #e0e0e0;
+      box-shadow: inset 0 0 0 1px #e0e0e0;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-learn-more-button:before {
+      display: none;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-learn-more-button:hover {
+      color: #0478b5 !important;
+      background-color: #f2f2f2 !important;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-dismiss-button {
+      color: white;
+      border: none !important;
+      text-decoration: none !important;
+      background-color: #1197dd !important;
+      -webkit-transition: .2s all;
+      -o-transition: .2s all;
+      transition: .2s all;
+      margin-right: 0px !important;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-dismiss-button span {
+      color: white !important;
+    }
+
+    #didomi-host .didomi-notice-banner .didomi-buttons .didomi-dismiss-button:hover {
+      background-color: #0478b5 !important;
+    }
+
+    #didomi-host .shape-banner .didomi-notice__interior-border {
+      padding: 0 5px;
+      width: 100%;
+      border: none !important;
+    }
+
+    @media screen and (min-width: 1370px) {
+      #didomi-host .shape-banner .didomi-notice__interior-border {
+        width: 1280px;
+      }
+    }
+
+    @media screen and (max-width: 979px) {
+      #didomi-host .shape-banner .push-right {
+        margin-right: 0;
+      }
+    }
+
+    @media screen and (max-width: 979px) {
+      #didomi-host .shape-banner .didomi-buttons {
+        margin-top: 0 !important;
+        position: relative;
+        padding-top: 10px;
+      }
+
+      #didomi-host .shape-banner .didomi-buttons::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #e0e0e0;
+        width: auto;
+        height: 1px;
+      }
+    }
+
+    #didomi-host .shape-box {
+      max-width: 320px !important;
+      padding: 20px 20px 10px 20px !important;
+      margin: 0 !important;
+      -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .shape-box.bottom {
+      -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+      box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    #didomi-host .shape-box .didomi-notice-text {
+      text-align: center;
+      font-size: 14px;
+      font-size: 1.4rem;
+      line-height: 22px;
+      line-height: 2.2rem;
+    }
+
+    #didomi-host .shape-box .push-right {
+      margin-right: 0;
+    }
+
+    #didomi-host .shape-box .didomi-buttons {
+      position: relative;
+      padding-top: 10px;
+      margin-top: 14px !important;
+    }
+
+    #didomi-host .shape-box .didomi-buttons::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #e0e0e0;
+      width: auto;
+      height: 1px;
+    }
+
+    #didomi-host .shape-box .didomi-button:nth-of-type(odd) {
+      margin-right: 5px !important;
+    }
+
+    #didomi-host .shape-box .didomi-button:nth-of-type(even) {
+      margin-left: 5px !important;
+    }
+
+    #didomi-host .shape-panel {
+      padding: 20px 20px 10px 20px !important;
+      border: none !important;
+      border-radius: 0 !important;
+      -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    #didomi-host .shape-panel.bottom {
+      -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+      box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.26), 0px 2px 8px 0px rgba(0, 0, 0, 0.13) !important;
+    }
+
+    #didomi-host .shape-panel .didomi-border {
+      padding: 0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+    }
+
+    #didomi-host .shape-panel.right {
+      right: 0 !important;
+    }
+
+    #didomi-host .shape-panel .didomi-notice-text {
+      text-align: center;
+      font-size: 14px;
+      font-size: 1.4rem;
+      line-height: 22px;
+      line-height: 2.2rem;
+    }
+
+    #didomi-host .shape-panel .push-right {
+      margin-right: 0;
+    }
+
+    #didomi-host .shape-panel .didomi-buttons {
+      position: relative;
+      padding-top: 10px;
+      margin-top: 16px !important;
+    }
+
+    #didomi-host .shape-panel .didomi-buttons::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #e0e0e0;
+      width: auto;
+      height: 1px;
+    }
+
+    #didomi-host .shape-panel .didomi-button {
+      width: 50%;
+    }
+
+    #didomi-host .shape-panel .didomi-button:nth-of-type(odd) {
+      margin-left: 0 !important;
+      margin-right: 5px !important;
+    }
+
+    #didomi-host .shape-panel .didomi-button:nth-of-type(even) {
+      margin-right: 0 !important;
+      margin-left: 5px !important;
+    }
+
+    /*# sourceMappingURL=_didomi_overrides.css.map */
+  </style>
+
+
+  <script type="text/javascript">
+    window.gdprAppliesGlobally = true;
+    (function () {
+      function n() {
+        if (!window.frames.__cmpLocator) {
+          if (document.body && document.body.firstChild) {
+            var e = document.body;
+            var t = document.createElement("iframe");
+            t.style.display = "none";
+            t.name = "__cmpLocator";
+            e.insertBefore(t, e.firstChild)
+          } else {
+            setTimeout(n, 5)
+          }
+        }
+      }
+
+      function e(e, t, n) {
+        if (typeof n !== "function") {
+          return
+        }
+        if (!window.__cmpBuffer) {
+          window.__cmpBuffer = []
+        }
+        if (e === "ping") {
+          n({
+            gdprAppliesGlobally: window.gdprAppliesGlobally,
+            cmpLoaded: false
+          }, true)
+        } else {
+          window.__cmpBuffer.push({
+            command: e,
+            parameter: t,
+            callback: n
+          })
+        }
+      }
+      e.stub = true;
+
+      function t(a) {
+        if (!window.__cmp || window.__cmp.stub !== true) {
+          return
+        }
+        if (!a.data) {
+          return
+        }
+        var r = typeof a.data === "string";
+        var e;
+        try {
+          e = r ? JSON.parse(a.data) : a.data
+        } catch (t) {
+          return
+        }
+        if (e.__cmpCall) {
+          var i = e.__cmpCall;
+          window.__cmp(i.command, i.parameter, function (e, t) {
+            var n = {
+              __cmpReturn: {
+                returnValue: e,
+                success: t,
+                callId: i.callId
+              }
+            };
+            a.source.postMessage(r ? JSON.stringify(n) : n, "*")
+          })
+        }
+      }
+      if (typeof window.__cmp !== "function") {
+        window.__cmp = e;
+        if (window.addEventListener) {
+          window.addEventListener("message", t, false)
+        } else {
+          window.attachEvent("onmessage", t)
+        }
+      }
+      n()
+    })();
+  </script>
+
+  <script type="text/javascript">
+    window.didomiConfig = {
+      languages: {
+        enabled: ['hr'], // List of languages that visitors can use (must be a subset of the languages that we support)
+        default: 'hr', // Default language to use if the visitor uses a language that is not enabled
+      },
+      website: {
+        apiKey: '49e2dd21-509f-4e31-9f4e-34808af3cb36',
+        name: 'poslodavac3.hr',
+        privacyPolicyURL: 'https://www.24sata.hr/pravila-privatnosti/',
+        logoUrl: 'https://www.24sata.hr/static/img/logo.svg',
+
+        vendors: {
+          "didomi": ["google"],
+          "custom": []
+        },
+      },
+      theme: {
+        font: 'InterstateCE-BlackCon, sans-serif',
+        color: '#f5a528'
+      },
+      preferences: {
+        defaultChoice: true,
+        content: {
+          save: {
+            hr: 'Spremi'
+          }
+        }
+      },
+      notice: {
+        closeOnClick: true,
+        daysBeforeShowingAgain: 60,
+        position: 'bottom',
+        content: {
+          popup: {
+            hr: "<p> Mi i na\u0161i partneri upotrebljavamo neosjetljive podatke poput kola\u010di\u0107a\r\nili identifikatora ure\u0111aja u svrhe kao \u0161to su prikazivanje prilago\u0111enih oglasa,\r\nmjerenje prometa i odabira na\u0161ih posjetitelja te prilago\u0111avanje sadr\u017eaja vama.\r\nKliknite na akciju \"Prihvati i zatvori\" kako biste pristali na ove postupke i zadr\u017eali korisni\u010dko iskustvo koje je prilago\u0111eno Vama. Svoje odabire mo\u017eete u svakom\r\ntrenutku promijeniti putem povratka na ovu web stranicu preko kontrola\r\ndostupnima na stranici <b>Pravila privatnosti</b>. Nastavkom upotrebe ovih stranica ili\r\nklikom na gumb \"Prihva\u0107am\" pristajete na pohranu i pristup kola\u010di\u0107ima. </p>\r\n"
+          },
+          notice: {
+            hr: "Mi i na\u0161i partneri stavljamo kola\u010di\u0107e, pristupamo op\u0107im i neosjetljivim podacima s va\u0161eg ure\u0111aja te ih upotrebljavamo kako bismo pobolj\u0161ali na\u0161e proizvode, prilagodili oglase i druge sadr\u017eaje na ovoj web stranici. Mo\u017eete prihvatiti sve ili dio tih postupaka. Kako biste saznali vi\u0161e o kola\u010di\u0107ima, partnerima i na\u010dinu na koji upotrebljavamo va\u0161e podatke te pregledali svoje mogu\u0107nosti kliknite na akciju \u201cPogledajte na\u0161e partnere\u201d."
+          },
+          dismiss: {
+            hr: 'Prihvati i zatvori'
+          },
+          learnMore: {
+            hr: 'Saznaj više'
+          }
+        }
+      }
+    };
+  </script>
+
+  <script type="text/javascript" id="spcloader" src="https://sdk.privacy-center.org/loader.js" async></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Konferencija Poslodavac 3.0</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/exu2xvt.css">
+  <script src="https://kit.fontawesome.com/215b0ac95e.js" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142878741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142878741-1');
+  </script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container justify-content-between">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img src="img/konf-logo.svg" class="d-inline-block align-top" alt="Poslodavac 3.0">
+      </a>
+
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+        <a class="nav-link" href="https://www.facebook.com/24sata/posts/3607366852631166" target="_blank">
+          <i class="fa fa-facebook fa-3x" style="
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;"></i>
+          <p class="boja">FACEBOOK LIVE</p>
+        </a>
+
+        <a class="nav-link" href="https://www.youtube.com/watch?v=q-x_ZefIrLY&feature=youtu.be" target="_blank">
+          <i class="fa fa-youtube fa-3x" style="
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;"></i>
+          <p class="boja">YOUTUBE LIVE</p>
+        </a>
+
+      </div>
+    </div>
+
+
+  </nav>
+
+  <div class="d-flex justify-content-end">
+    <img src="img/mreza33.svg" class="mreza">
+  </div>
+
+  <header class="container-fluid h-100 align-items-center" id="page-top">
+    <div class="container">
+
+      <div class="row uvod justify-content-between">
+        <div class="col-lg-6">
+          <p class="detalji">ZAJEDNO ZA SUTRA!</p>
+          <h1>Najveća domaća poslovna konferencija u virtualnom izdanju</h1>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="kada d-inline-flex align-items-baseline">
+            <img src="img/datumvrijeme.svg" class="ikona" alt="">
+            
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center ">
+          <h1 class="mobit">Pogledajte live konferenciju</h1>
+        </div>
+  
+
+    
+        <div class="col-lg-3 col-12 text-center">
+          <a  href="https://www.facebook.com/24sata/posts/3607366852631166" target="_blank">
+            <button class="btn btn-svijetli" type="button">FACEBOOK 24sata</button>
+          </a>
+        </div>
+        <div class="col-lg-3 col-12 text-center">
+          <a href="https://www.youtube.com/watch?v=q-x_ZefIrLY&feature=youtu.be" target="_blank">
+            <button class="btn btn-svijetli" type="button">YOUTUBE 24sata</button>
+          </a>
+        </div>
+      </div>
+
+
+
+    <div class="row justify-content-center">
+      <div class="col-lg-4 text-center prijava">
+        <h4>Više o aktualnim temama saznajte u specijalu</h4>
+        <a href="https://www.24sata.hr/poslodavac" target="_blank">
+          <button class="btn btn-svijetli" type="button">Specijal Poslodavac 3.0</button>
+        </a>
+      </div>
+    </div>
+
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <section class="about container-fluid">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-12">
+          <h1>O konferenciji</h1>
+        </div>
+        <div class="col-lg-6">
+          <p>Istaknuti stručnjaci i eminentni hrvatski poslodavci bavit će se temama rada od kuće, promjenama na tržištu rada
+            koje su zadesile zaposlenike i poslodavce. Zajedno ćemo pokušati predvidjeti koja će zanimanja biti tražena u
+            skoroj budućnosti i kako ćemo se znati nositi s najavljenom ekonomskom krizom</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about container-fluid">
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10">
+          <h1>Sudjeluju</h1>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/lada.png" alt="" class="img-fluid">
+            <h2 class="ime">Lada Tedeschi Fiorio</h2>
+            <p class="padi">potpredsjednica Grupe za Korporativnu strategiju i razvoj Atlantic Grupa </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/iva.png" alt="" class="img-fluid">
+            <h2 class="ime">Iva Šulentić</h2>
+            <p class="padi">televizijska i radijska voditeljica, spikerica i glumica</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-around">
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/zvonimir.png" alt="" class="img-fluid">
+            <h2 class="ime">dr. sc. ZVONIMIR GALIĆ</h2>
+            <p class="padi">izvanredni profesor, Odsjek za psihologiju, Filozofski fakultet u Zagrebu</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/alen.png" alt="" class="img-fluid">
+            <h2 class="ime">Alan Žepec </h2>
+            <p class="padi">osnivač i direktor LQ organizacije, coach i trener iz područja liderstva i osobnog razvoja za kompanije u Hrvatskoj
+              i inozemstvu</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row justify-content-around">
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/darija.png" alt="" class="img-fluid">
+            <h2 class="ime">prof. i psih. DARIJA JAKOVLJEVIĆ </h2>
+            <p class="padi">izvršna HR direktorica u DEKRA zapošljavanje d.o.o.</p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/kristina.png" alt="" class="img-fluid">
+            <h2 class="ime"> Kristina Priseker</h2>
+            <p class="padi">vlasnica tvrtke FLAME Consulting d.o.o., trenerica, coach i stručnjakinja u području razvoja ljudskih potencijala</p>
+          </div>
+          </a>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section>
+
+
+  <section class="about container-fluid">
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10">
+          <h1>Moderator</h1>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4">
+          <div class="text-center govraz">
+            <img src="img/govornici/igor.png" alt="" class="img-fluid">
+            <h2 class="ime">IGOR ALBORGHETTI</h2>
+            <p class="padi">glavni urednik Expressa</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <div class="d-flex justify-content-start">
+    <img src="img/mreza-prog.svg" class="mrezabok">
+  </div>
+
+  <section class="about container-fluid">
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10">
+          <h1>Program</h1>
+          <p>četvrtak, 18. 06. 2020.
+            <br>16:00 - 17:30
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <!-- <div class="row justify-content-around"> -->
+        <div class="col-lg-5">
+          <div class="govraz">
+            <h3 class="ime">DOBRODOŠLICA I UVODNA RIJEČ</h3>
+            <p>
+              <b>BORIS TRUPČEVIĆ</b>, direktor 24sata</p>
+          </div>
+
+          <div class=" govraz">
+            <h5>
+              <span class="prog">PANEL</span>
+            </h5>
+            <h3 class="ime">WFH REVOLUCIJA</h3>
+            <p>moderator:
+              <b>IGOR ALBORGHETTI</b>
+              <br>
+              <b>IVA ŠULENTIĆ</b>, televizijska i radijska voditeljica, spikerica i glumica
+              <br>
+              <b>ALAN ŽEPEC</b>, osnivač i direktor LQ organizacije, coach i trener iz područja liderstva i osobnog razvoja
+              za kompanije u Hrvatskoj i inozemstvu</b>
+              <br>
+              <b>KRISTINA PRISEKER</b>, vlasnica tvrtke FLAME Consulting d.o.o., trenerica, coach i stručnjakinja u području
+              razvoja ljudskih potencijala</b>
+              <br>
+              <b>dr. sc. ZVONIMIR GALIĆ</b>, izvanredni profesor, Odsjek za psihologiju, Filozofski fakultet u Zagrebu
+              <br>
+              <b>prof. i psih. DARIJA JAKOVLJEVIĆ</b>, izvršna HR direktorica u DEKRA zapošljavanje d.o.o.
+              <br> </p>
+            <span style="color:#3dcee4;font-size:1rem">
+              <b>TEME:</b>
+            </span>
+            <p> Rad od kuće (WFH) u pandemiji pokazao se relativno pogodan odgovor na korona krizu. Koja su iskustva za poslodavce,
+              koja su iskustva za posloprimce?
+              <br> Radi li se efikasnije, brže, koncetriranije ili je klasični work from office ipak poželjeniji… Koje su uštede
+              za poslodavce, pogodnosti za posloprimce?
+              <br> Kako nadomijestiti timsku atmosferu, socijalne kontakte i službena putovanja? Hoće li decission making postati
+              drugačiji? Kako osigurati sigurnost podataka (VPN overload) i ljudi (bolesti i zaraze)?
+              <br>
+              <br> I što nam nakon ovog slijedi: Koja će zanimanja biti najtraženija u skoroj budućnosti...
+            </p>
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-1">
+          <div class="govraz d-sm-none d-none d-lg-block">
+            <img class="lajna" style="margin:0 auto; height:100%;" src="img/lajna.svg" alt="" class="img-fluid">
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-5">
+          <div class="govraz">
+            <h5>
+              <span class="prog">INTERVJU</span>
+            </h5>
+            <h3 class="ime">JEDAN NA JEDAN</h3>
+            <p>moderator:
+              <b>IGOR ALBORGHETTI</b>
+              <br>
+              <b>Lada Tedeschi Fiorio</b>, potpredsjednica Grupe za Korporativnu strategiju i razvoj Atlantic Grupa
+              <br>
+            </p>
+            <span style="color:#3dcee4;font-size:1rem;">
+              <b>TEMA:</b>
+              <br>
+            </span>
+            <p>
+              <b>KAMELEON KOVID</b> - tvrtke koje su iz krize stvorile još bolje poslovne prilike
+              <br>
+              <br>
+            </p>
+          </div>
+
+
+          <div class="govraz">
+            <h5>
+              <span class="prog">DODJELA NAGRADA</span>
+            </h5>
+            <h3 class="ime">POSLODAVAC ZA PET</h3>
+            <p>Dodjela nagrada za pobjednike natječaja „Poslodavac za pet“ u kategoriji srednjih, malih i mikro tvrtki
+              <br> Nagrade dodjeljuju predstavnici partnera natječaja: Fortenova grupa, SELECTIO i 24sata
+            </p>
+          </div>
+
+          <div class=" govraz">
+            <h3 class="ime">ODJAVNA ŠPICA</h3>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <footer class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <img src="img/logo.png" alt="">
+      </div>
+
+    </div>
+    <div class="row justify-content-center align-items-center logi">
+      <div class="col-lg-12 pow">
+        <p>Organizator:</p>
+      </div>
+
+      <div class="col-lg-2 col-6 log dvacetri">
+        <a href="https://www.24sata.hr/" target="_blank">
+          <img src="img/logo/24sata.svg" class="img-fluid" alt="">
+        </a>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center logi">
+      <div class="col-lg-12 pow">
+        <p>Powered by:</p>
+      </div>
+
+      <div class="col-lg-2 col-5 log">
+        <a href="https://www.hep.hr/" target="_blank">
+          <img src="img/logo/logo-hep.svg" class="img-fluid" alt="">
+        </a>
+      </div>
+
+      <div class="col-lg-2 col-5 log">
+        <a href="https://www.ina.hr/" target="_blank">
+          <img src="img/logo/ina logo novi.svg" class="img-fluid" alt="">
+        </a>
+      </div>
+
+
+      <div class="col-lg-2 col-5 log">
+        <a href="https://www.dekra-zapo.hr/" target="_blank">
+          <img src="img/logo/dekra-logo.png" class="img-fluid" alt="">
+        </a>
+      </div>
+
+
+    </div>
+
+    <div class="row justify-content-center align-items-center logi">
+      <div class="col-lg-12 pow">
+        <p>Partner:</p>
+      </div>
+      <div class="col-lg-3 col-5 log">
+        <a href="https://www.tvornicakulture.com/" target="_blank">
+          <img src="img/logo/tvornica-logo.png" class="img-fluid" alt="">
+        </a>
+      </div>
+
+
+
+
+    </div>
+
+
+
+    <div class="row justify-content-center text-center">
+      <div class="col">
+        <p class="copy">Copyright 2020. &copy; 24sata d.o.o.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
